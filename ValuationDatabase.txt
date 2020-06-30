@@ -1,0 +1,14 @@
+paracetamol => {par}
+coldtablets => {cldtab}
+ibuprofen => {ibu}
+prednisolone => {pre}
+antidepressants => {antd}
+serotonin => {ser}
+aspirn => {asp}
+
+
+with => {(ibu,), (par,), (cldtab,)}
+commonMeds => {(par, ), (ibu, ), (asp, )}
+file1 => f1
+file2 => f2
+storing => {}

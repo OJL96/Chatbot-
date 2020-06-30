@@ -1,0 +1,160 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category>
+ <pattern> HELLO </pattern>
+    <template>
+        <random>
+            <li>Hello there</li>
+            <li>Hey how are you?</li>
+            <li>'Nods'</li>
+            <li>Whats up</li>
+        </random>
+    </template>
+</category>
+
+<category>
+ <pattern> HI </pattern>
+    <template>
+        <random>
+            <li>Hello there</li>
+            <li>Hey how are you?</li>
+            <li>'Nods'</li>
+            <li>Whats up</li>
+        </random>
+    </template>
+</category>
+
+<category>
+ <pattern> HEY </pattern>
+    <template>
+        <random>
+            <li>Hello there</li>
+            <li>Hey how are you?</li>
+            <li>'Nods'</li>
+            <li>Whats up</li>
+        </random>
+    </template>
+</category>
+
+<category>
+ <pattern> HOW ARE YOU </pattern>
+    <template>
+        <random>
+            <li>Meh</li>
+            <li>Bored to be honest</li>
+            <li>Okay i guess</li>
+            <li>Fine now i have company :)</li>
+        </random>
+    </template>
+</category>
+
+<category>
+      <pattern> HOW ARE YOU DOING </pattern>
+      <template>
+        <random>
+            <li>Meh</li>
+            <li>Bored to be honest</li>
+            <li>Okay i guess</li>
+            <li>Fine now i have company :)</li>
+        </random>
+    </template>
+</category>
+
+<category>
+      <pattern> WHEN SHOULD I CALL 999 </pattern>
+      <template> When you feel like you're suffering from the following: Cardiac arrest/ collapse/ unconsciousnesst,
+ Chest pain / heart attack,
+ Convulsions / fittingsChoking / Drowning
+    </template>
+</category>
+
+<category>
+      <pattern> WHAT ARE COMMON HOUSEHOLD MEDICATION </pattern>
+      <template> Painkillers like aspirin, paracetamol and ibuprofen
+    </template>
+</category>
+
+<category><pattern> I AM FINE </pattern>
+  <template>That's good to know. What would you like to discuss regarding urban agriculture?</template></category>
+
+<category><pattern> BYE </pattern>
+  <template>#0$Bye! Nice talking to you. You take care now.</template></category>
+
+<category><pattern> GOODBYE </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category><pattern> EXIT </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category> <pattern> THANKS </pattern>
+  <template>You are welcome.</template></category>
+
+<category> <pattern> THANK YOU </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<category> <pattern> CHEERS </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> CHEERS * </pattern>
+  <template>Sure mate.</template></category>
+
+
+
+
+<!--- Wikipedia API -->
+<category><pattern> WHAT IS A * </pattern>
+  <template>#1$<star index="1"/></template></category>
+
+<category><pattern> WHAT IS AN * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHAT IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> DEFINE * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHO IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+
+<!-- CNN Model -->
+<category><pattern>IDENTIFY IMAGE</pattern>
+  <template>#2$</template></category>
+  
+
+<!-- FOL model interface -->
+<category> <pattern> CAN I TAKE * WITH * </pattern>
+ <template>#3$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> IS * IN * </pattern>
+ <template>#4$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern>CAN I SAVE * IN *</pattern>
+ <template>#5$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> DOES * REQUIRE A PRESCRIPTION </pattern>
+ <template>#6$<star index="1"/></template></category>
+ 
+<!-- RL Model -->
+<category> <pattern> HOW TO GET TO * </pattern>
+ <template>#7$<star index="1"/></template></category>
+ 
+<category> <pattern> CALL 999 </pattern>
+ <template>#8$</template></category>
+ 
+  <!-- RL Model -->
+<category> <pattern>EN TO FR</pattern>
+ <template>#9$</template></category>
+ 
+<!-- Default reaction -->
+<category><pattern> * </pattern>
+  <template>#99$<star index="1"/></template></category>
+  
+  
+  
+
+
+
+</aiml>

@@ -1,0 +1,66 @@
+## Natural Language Toolkit: sem3.fcfg
+##
+## Alternative simple grammar with transitive verbs and 
+## quantifiers for the book. 
+## 
+## Author: Ewan Klein <ewan@inf.ed.ac.uk> 
+## URL: <http://nltk.sourceforge.net>
+## For license information, see LICENSE.TXT
+
+## modified by Omar
+
+% start S
+############################
+# Grammar Rules
+#############################
+
+S[SEM = <?subj(?vp)>] -> NP[NUM=?n,SEM=?subj] VP[NUM=?n,SEM=?vp]
+
+NP[NUM=?n,SEM=<?det(?nom)> ] -> Det[NUM=?n,SEM=?det]  Nom[NUM=?n,SEM=?nom]
+NP[LOC=?l,NUM=?n,SEM=?np] -> PropN[LOC=?l,NUM=?n,SEM=?np]
+
+Nom[NUM=?n,SEM=?nom] -> N[NUM=?n,SEM=?nom]
+
+VP[NUM=?n,SEM=?v] -> IV[NUM=?n,SEM=?v]
+VP[NUM=?n,SEM=<?v(?obj)>] -> TV[NUM=?n,SEM=?v] NP[SEM=?obj]
+VP[NUM=?n,SEM=<?v(?obj,?pp)>] -> DTV[NUM=?n,SEM=?v] NP[SEM=?obj] PP[+TO,SEM=?pp]
+
+PP[+TO, SEM=?np] -> P[+TO] NP[SEM=?np]
+
+#############################
+# Lexical Rules
+#############################
+PropN[-LOC,NUM=sg,SEM=<\P.P(file1)>] -> 'file1'
+PropN[-LOC,NUM=sg,SEM=<\P.P(file2)>] -> 'file2'
+
+Det[NUM=sg,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'every'
+Det[NUM=pl,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'all'
+Det[SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'some'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'a'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'an'
+
+N[NUM=sg,SEM=<\x.aspirn(x)>] -> 'aspirn'
+N[NUM=sg,SEM=<\x.ibuprofen(x)>] -> 'ibuprofen'
+N[NUM=sg,SEM=<\x.prednisolone(x)>] -> 'prednisolone'
+N[NUM=sg,SEM=<\x.paracetamol(x)>] -> 'paracetamol'
+N[NUM=sg,SEM=<\x.antidepressants (x)>] -> 'antidepressants'
+N[NUM=sg,SEM=<\x.serotonin (x)>] -> 'serotonin'
+
+Adj[SEM=<\x.weak(x)>] -> 'weak'
+Adj[SEM=<\x.weak(x)>] -> 'weaker'
+Adj[SEM=<\x.weak(x)>] -> 'weakest'
+Adj[SEM=<\x.strong(x)>] -> 'strong'
+Adj[SEM=<\x.strong(x)>] -> 'stronger'
+Adj[SEM=<\x.strong(x)>] -> 'strongest'
+
+
+TV[NUM=sg,SEM=<\X x.X(\y.storing(x,y))>,TNS=pres] -> 'is_in'
+TV[NUM=pl,SEM=<\X x.X(\y.storing(x,y))>,TNS=pres] -> 'are_in'
+TV[NUM=sg,SEM=<\X x.X(\y.storing(x,y))>,TNS=pres] -> 'storeinfo'
+
+
+
+
+
+
+P[+to] -> 'to'
