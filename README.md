@@ -8,3 +8,5 @@ A chatbot created in Python with multiple features to aid a user or patient with
 
 
 > [Final Spec Document](https://github.com/OJL96/Healthcare-Chatbot/files/7280823/Final.Specification-converted.pdf)
+
+> [CNN Model Data](https://www.kaggle.com/paultimothymooney/blood-cells)
